@@ -1,0 +1,19 @@
+{
+  "mdbConfig": {
+    "host": "",
+    "user": "",
+    "password": "",
+    "db": ""
+  },
+  "useSingleStore": true,
+  "emailString": {
+    "host": ""
+  },
+  "app": {
+    "port": 8080,
+    "authHeader": "",
+    "authEnabled": false,
+    "userRefreshInterval": 900000,
+    "gcInterval": 3600000
+  }
+}
