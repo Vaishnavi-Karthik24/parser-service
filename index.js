@@ -54,7 +54,7 @@ app.use((err, req, res, next) => {
     errStatus,
     errMsg,
   }
-  res.status(500).json(output)
+  res.status(errStatus).json(output)
 })
 
 // Initialize Pulsar consumers
