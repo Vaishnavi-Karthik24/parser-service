@@ -1,19 +1,18 @@
-const { serverConfig } = require('../utils/secretUtils')
-const { exec } = require('child_process')
-const util = require('util')
-const { rawStoragePath } = require('../utils/filePath')
-const { STATUS, VENDORS } = require('../utils/constants')
-const dao = require('../dao')
-const logger = require('../logger')
-const { createProducer } = require('../pulsar/producer')
-const fs = require('fs')
-const {
+import { exec } from 'child_process'
+import util from 'util'
+import { rawStoragePath } from '../utils/filePath.js'
+import { STATUS, VENDORS } from '../utils/constants.js'
+import * as dao from '../dao/index.js'
+import logger from '../logger/index.js'
+import { createProducer } from '../pulsar/producer/index.js'
+import fs from 'fs'
+import {
   getCurrentTimeStamp,
   descriptionStatus,
   querySqlizer,
-} = require('../utils')
+} from '../utils/index.js'
 
-const groupByMarket = async (
+export const groupByMarket = async (
   uuid,
   ems_name,
   ossName,
@@ -98,7 +97,7 @@ const groupByMarket = async (
   }
 }
 
-const deleteFilesfromRawStorage = async (
+export const deleteFilesfromRawStorage = async (
   uuid,
   ems_vendor,
   ems_name,
@@ -177,7 +176,7 @@ const deleteFilesfromRawStorage = async (
   }
 }
 
-const getUniqueSamsungMarkets = async (files) => {
+export const getUniqueSamsungMarkets = async (files) => {
   // Check if the file ends with .xml
   let filesList = files.filter((i) => !i.endsWith('W.xml'))
   const regexExp = /_(\d+)\./
@@ -215,7 +214,7 @@ const getUniqueSamsungMarkets = async (files) => {
   return [...new Set(mktIds)]
 }
 
-const getUniqueEricssonMarkets = async (files) => {
+export const getUniqueEricssonMarkets = async (files) => {
   // Process ericsson market splitting logic. Sample input file format "split.ONRM_ROOT_MO.MKT_171.1710000.xml"
   let filesList = files.filter((i) => i.endsWith('.xml'))
   logger.info(`List of files that ends with .xml are ${filesList}`)
@@ -230,11 +229,4 @@ const getUniqueEricssonMarkets = async (files) => {
     }
   })
   return [...uniqIds]
-}
-
-module.exports = {
-  groupByMarket,
-  deleteFilesfromRawStorage,
-  getUniqueEricssonMarkets,
-  getUniqueSamsungMarkets,
 }

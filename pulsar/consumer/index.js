@@ -1,12 +1,12 @@
-const client = require('../client')
-const listener = require('../../listener')
-const logger = require('../../logger')
-const newrelic = require('newrelic')
-require('dotenv').config()
+import client from '../client/index.js'
+import listener from '../../listener/index.js'
+import logger from '../../logger/index.js'
+import newrelic from 'newrelic'
+import 'dotenv/config'
 
 let consumer
 
-const consumerInit = async () => {
+export const consumerInit = async () => {
   try {
     let topic = process.env.EXTRACTOR_TOPIC
     let subscription = process.env.SUBSCRIPTION
@@ -30,5 +30,3 @@ const consumerInit = async () => {
   }
   return consumer
 }
-
-module.exports = { consumerInit, consumer }

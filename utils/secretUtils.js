@@ -1,5 +1,7 @@
-require('dotenv').config()
-const config = require('config')
-const serverConfig = JSON.parse(process.env.sshConfig)
+import dotenv from 'dotenv'
+dotenv.config()
+import config from 'config'
 
-module.exports = { serverConfig }
+export const serverConfig = {
+  // your configuration properties here
+}

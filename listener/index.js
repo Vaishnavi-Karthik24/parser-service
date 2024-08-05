@@ -1,6 +1,6 @@
-const logger = require('../logger')
-const newrelic = require('newrelic')
-const { extractor } = require('../controller/snapshotExtractor')
+import logger from '../logger/index.js'
+import newrelic from 'newrelic'
+import { extractor } from '../controller/snapshotExtractor.js'
 
 async function listener(msg, msgConsumer) {
   try {
@@ -16,4 +16,4 @@ async function listener(msg, msgConsumer) {
   }
 }
 
-module.exports = listener
+export default listener

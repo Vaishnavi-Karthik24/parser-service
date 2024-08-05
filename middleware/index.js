@@ -1,6 +1,6 @@
-const jwt = require('jsonwebtoken')
-const logger = require('../logger')
-const newrelic = require('newrelic')
+import jwt from 'jsonwebtoken'
+import logger from '../logger/index.js'
+import newrelic from 'newrelic'
 
 /**
  * Middleware function to validate the token in the request headers.
@@ -8,7 +8,7 @@ const newrelic = require('newrelic')
  * @param {Object} res - The response object.
  * @param {Function} next - The next middleware function.
  */
-const validateTokenMiddleware = (req, res, next) => {
+export const validateTokenMiddleware = (req, res, next) => {
   // Log the method and URL of the incoming request
   logger.info({ method: req.method, url: req.url })
 
@@ -45,5 +45,3 @@ const validateTokenMiddleware = (req, res, next) => {
   // Call the next middleware function
   next()
 }
-
-module.exports = validateTokenMiddleware

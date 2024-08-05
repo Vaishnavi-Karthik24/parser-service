@@ -1,6 +1,6 @@
-const Client = require('mysql2')
-const logger = require('../logger')
-const config = require('config')
+import mysql from 'mysql2'
+import logger from '../logger/index.js'
+import config from 'config'
 
 logger.info('Getting db configuration')
 
@@ -8,7 +8,7 @@ const dbConfig = JSON.parse(process.env.mdbConfig)
 
 logger.info('Creating db connection pool')
 
-const pool = Client.createPool({
+const pool = mysql.createPool({
   host: dbConfig.host,
   port: dbConfig.port,
   user: dbConfig.user,
@@ -22,4 +22,4 @@ const pool = Client.createPool({
     appName: 'snapshot-extractor-service',
   },
 })
-module.exports = pool
+export default pool

@@ -1,11 +1,11 @@
-const env_types = {
+export const env_types = {
   DEV: 'dev',
   UAT: 'uat',
   PROD: 'prod',
 }
 
-const PROCESS_STAGE = 'EXTRACTION'
-const STATUS = {
+export const PROCESS_STAGE = 'EXTRACTION'
+export const STATUS = {
   STARTED: 'STARTED',
   INPROGRESS: 'INPROGRESS',
   FAILED: 'FAILED',
@@ -14,14 +14,8 @@ const STATUS = {
   SUCCESS: 'SUCCESS',
 }
 
-const VENDORS = {
+export const VENDORS = {
   SAMSUNG: 'samsung',
   ERICSSON: 'ericsson',
   NOKIA: 'nokia',
-}
-module.exports = {
-  PROCESS_STAGE,
-  env_types,
-  STATUS,
-  VENDORS,
 }

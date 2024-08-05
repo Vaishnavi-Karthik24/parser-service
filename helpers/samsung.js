@@ -1,20 +1,20 @@
-const { getExtractorStoragePath } = require('../utils/filePath')
-const { PROCESS_STAGE, STATUS } = require('../utils/constants')
-const {
+import { getExtractorStoragePath } from '../utils/filePath.js'
+import { PROCESS_STAGE, STATUS } from '../utils/constants.js'
+import {
   executeCMD,
   getCurrentTimeStamp,
   descriptionStatus,
   querySqlizer,
-} = require('../utils')
-const { groupByMarket } = require('./index')
-const dao = require('../dao')
-const logger = require('../logger')
+} from '../utils/index.js'
+import { groupByMarket } from './index.js'
+import * as dao from '../dao/index.js'
+import logger from '../logger/index.js'
 
 /* Ericsson extraction process 
    Sample format of the received files - 20240510.duluth.enm.xml.zip 
    Sample format of the extracted files - split.ONRM_ROOT_MO.MKT_214.214230.xml */
 
-const unZipFiles = async (
+export const unTarFiles = async (
   uuid,
   ems_vendor,
   ems_name,
@@ -106,8 +106,4 @@ const unZipFiles = async (
     )
     throw error
   }
-}
-
-module.exports = {
-  unZipFiles,
 }

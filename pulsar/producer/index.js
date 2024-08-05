@@ -1,8 +1,8 @@
 // Import required modules
-const client = require('../client')
+const client = require('../client/index.js')
 const logger = require('../../logger')
 
-const createProducer = async (message) => {
+export const createProducer = async (message) => {
   logger.info('Creating producer connection')
 
   // Create a producer with specified topic and send timeout
@@ -22,5 +22,3 @@ const createProducer = async (message) => {
   )
   await producer.close()
 }
-
-module.exports = { createProducer }

@@ -1,18 +1,18 @@
-const { PROCESS_STAGE, STATUS, VENDORS } = require('../utils/constants')
-const dao = require('../dao')
-const logger = require('../logger')
-const { createProducer } = require('../pulsar/producer')
-const {
+import { PROCESS_STAGE, STATUS, VENDORS } from '../utils/constants.js'
+import * as dao from '../dao/index.js'
+import logger from '../logger/index.js'
+import { createProducer } from '../pulsar/producer/index.js'
+import {
   getCurrentTimeStamp,
   descriptionStatus,
   querySqlizer,
-} = require('../utils')
-const { unTarFiles } = require('../helpers/samsung')
-const { moveFiles } = require('../helpers/nokia')
-const { unZipFiles } = require('../helpers/ericsson')
+} from '../utils/index.js'
+import { unTarFiles } from '../helpers/samsung.js'
+import { moveFiles } from '../helpers/nokia.js'
+import * as unZipFiles from '../helpers/ericsson.js'
 
 // Extraction process for Samsung, Ericsson and Nokia
-const extractor = async (msg) => {
+export const extractor = async (msg) => {
   logger.info(`Extractor message received :: ${JSON.stringify(msg)}`)
 
   const msgData = msg
@@ -181,5 +181,3 @@ const extractor = async (msg) => {
     throw error
   }
 }
-
-module.exports = { extractor }

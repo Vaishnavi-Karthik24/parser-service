@@ -1,11 +1,6 @@
-const rawStoragePath = '/app/data/raw'
-const extractorStoragePath = '/app/data/extractor'
+export const rawStoragePath = '/app/data/raw'
+export const extractorStoragePath = '/app/data/extractor'
 
-const getExtractorStoragePath = (vendor, id, ems) => {
+export const getExtractorStoragePath = (vendor, id, ems) => {
   return `${extractorStoragePath}/${vendor}/${id}/${ems}`
-}
-
-module.exports = {
-  rawStoragePath,
-  getExtractorStoragePath,
 }

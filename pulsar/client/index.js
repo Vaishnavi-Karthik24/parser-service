@@ -1,5 +1,5 @@
-const Pulsar = require('pulsar-client')
-const logger = require('../../logger')
+import Pulsar from 'pulsar-client'
+import logger from '../../logger/index.js'
 
 const certificatePath = process.env.CERTIFICATE_PATH
 const privateKeyPath = process.env.PRIVATE_KEY_PATH
@@ -33,4 +33,4 @@ try {
   process.exit(1)
 }
 
-module.exports = client
+export default client

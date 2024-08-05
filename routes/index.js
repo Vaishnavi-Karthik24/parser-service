@@ -19,4 +19,4 @@ router.post('/publish-snapshot-event', function (req, res, next) {
   }
 })
 
-module.exports = router
+export default router

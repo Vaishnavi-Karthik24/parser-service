@@ -1,14 +1,16 @@
 // Import required modules
-require('newrelic')
-require('dotenv').config()
-const express = require('express')
-const bodyParser = require('body-parser')
-const swaggerUi = require('swagger-ui-express')
+import 'newrelic'
+import dotenv from 'dotenv'
+dotenv.config()
+
+import express from 'express'
+import bodyParser from 'body-parser'
+import swaggerUi from 'swagger-ui-express'
 const swaggerDocument = require('./swagger.json')
-const pulsarClient = require('./pulsar/client')
-const { consumerInit, consumer } = require('./pulsar/consumer')
-const routes = require('./routes')
-const logger = require('./logger')
+import pulsarClient from './pulsar/client/index.js'
+import { consumerInit } from './pulsar/consumer/index.js'
+import routes from './routes/index.js'
+import logger from './logger/index.js'
 
 // Initialize Express app
 const app = express()

@@ -1,19 +1,19 @@
-const fs = require('fs').promises
-const path = require('path')
-const logger = require('../logger')
-const { getExtractorStoragePath, rawStoragePath } = require('../utils/filePath')
-const {
+import fs from 'fs/promises'
+import path from 'path'
+import logger from '../logger/index.js'
+import { getExtractorStoragePath, rawStoragePath } from '../utils/filePath.js'
+import {
   descriptionStatus,
   getCurrentTimeStamp,
   querySqlizer,
-} = require('../utils')
-const dao = require('../dao')
-const { createProducer } = require('../pulsar/producer')
-const { STATUS, VENDORS } = require('../utils/constants')
-const util = require('util')
-const { exec } = require('child_process')
+} from '../utils/index.js'
+import * as dao from '../dao/index.js'
+import { createProducer } from '../pulsar/producer/index.js'
+import { STATUS } from '../utils/constants.js'
+import util from 'util'
+import { exec } from 'child_process'
 
-const moveFiles = async (
+export const moveFiles = async (
   uuid,
   ems_vendor,
   ems_name,
@@ -105,8 +105,4 @@ const moveFiles = async (
     logger.error(`Error occurred inside moving function :: ${error}`)
     throw new Error(error.message)
   }
-}
-
-module.exports = {
-  moveFiles,
 }
