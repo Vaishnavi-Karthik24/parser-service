@@ -1,5 +1,7 @@
 import Pulsar from 'pulsar-client'
 import logger from '../../logger/index.js'
+import dotenv from 'dotenv'
+dotenv.config()
 
 const certificatePath = process.env.CERTIFICATE_PATH
 const privateKeyPath = process.env.PRIVATE_KEY_PATH
