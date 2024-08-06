@@ -231,10 +231,3 @@ export const getUniqueEricssonMarkets = async (files) => {
   })
   return [...uniqIds]
 }
-
-module.exports = {
-  groupByMarket,
-  deleteFilesfromRawStorage,
-  getUniqueEricssonMarkets,
-  getUniqueSamsungMarkets,
-}

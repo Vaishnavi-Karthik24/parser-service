@@ -1,6 +1,6 @@
 // Import required modules
-const client = require('../client/index.js')
-const logger = require('../../logger')
+import client from '../client/index.js'
+import logger from '../../logger/index.js'
 
 export const createProducer = async (message) => {
   logger.info('Creating producer connection')

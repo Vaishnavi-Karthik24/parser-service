@@ -8,7 +8,7 @@ import newrelic from 'newrelic'
  * @param {Object} res - The response object.
  * @param {Function} next - The next middleware function.
  */
-export const validateTokenMiddleware = (req, res, next) => {
+export default function validateTokenMiddleware(req, res, next) {
   // Log the method and URL of the incoming request
   logger.info({ method: req.method, url: req.url })
 

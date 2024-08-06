@@ -1,8 +1,8 @@
 // Import required modules
-const express = require('express')
+import * as express from 'express'
 const router = express.Router()
-const controller = require('../controller/snapshotExtractor')
-const validateTokenMiddleware = require('../middleware')
+import * as controller from '../controller/snapshotExtractor.js'
+import validateTokenMiddleware from '../middleware/index.js'
 
 // Middleware to validate token
 router.use(validateTokenMiddleware)

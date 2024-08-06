@@ -6,14 +6,14 @@ dotenv.config()
 import express from 'express'
 import bodyParser from 'body-parser'
 import swaggerUi from 'swagger-ui-express'
-const swaggerDocument = require('./swagger.json')
+// import * as swaggerDocument from './swagger.json'
 import pulsarClient from './pulsar/client/index.js'
 import { consumerInit } from './pulsar/consumer/index.js'
 import routes from './routes/index.js'
 import logger from './logger/index.js'
 
 // Initialize Express app
-const app = express()
+export const app = express()
 
 // Parse request body
 app.use(bodyParser.json({ limit: '50mb' }))
@@ -31,11 +31,11 @@ app.use((req, res, next) => {
 })
 
 // Swagger documentation route
-app.use(
-  '/snapshot-extractor/api-docs',
-  swaggerUi.serve,
-  swaggerUi.setup(swaggerDocument)
-)
+// app.use(
+//   '/snapshot-extractor/api-docs',
+//   swaggerUi.serve,
+//   swaggerUi.setup(swaggerDocument)
+// )
 
 // API routes
 app.use('/snapshot-extractor', routes)
@@ -85,5 +85,3 @@ process.on('SIGINT', async () => {
     })
   }).then(() => process.exit(0))
 })
-
-module.exports = app
