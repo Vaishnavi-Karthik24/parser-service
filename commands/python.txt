@@ -1,0 +1,18 @@
+RUN_ENV=DEV
+PYTHONUNBUFFERED=1
+RUN_ENV=UAT
+DB=SINGLESTORE
+mongoClientConfig=mongodb://user_name:password@hostname.com:27009/dbname
+mysqlConfig='{"host": "","user": "","password": "","db": "", "port" : "3306"}'
+NODE_ENV=UAT
+memsqlConfig='{"host": "","user": "","password": "","db": "", "port" : "3306"}'
+db_selection=SINGLESTORE
+
+
+pip install python-dotenv
+                    
+pip install -r requirements.txt
+
+pip config set global.index-url https://oneartifactoryci.test.com/artifactory/api/pypi/Pypi-virtual/simple/
+
+python test_refresh_by_geo_id.py --geo_id=14 --auditId=None --ems=None
