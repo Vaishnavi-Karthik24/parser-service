@@ -34,6 +34,9 @@ SELECT CURRENT_DATE();
 
 SELECT NOW();
 
+-- Between some interval of day
+SELECT * FROM table_name WHERE created_ts BETWEEN NOW() - INTERVAL 30 DAY AND NOW(); 
+
 -- Adding case and joins
 SELECT
 tn1.column_two AS one, 
