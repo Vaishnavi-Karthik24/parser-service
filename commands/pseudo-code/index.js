@@ -22,4 +22,10 @@ for (let submitter of submitterId) {
   }
 }
 
+// Filter out the maxSubmitter and create a comma-separated string
+let remainingSubmitters = submitterId
+  .filter((submitter) => submitter !== maxSubmitter)
+  .join(',')
+
 console.log(maxSubmitter, 'is the selected submitter')
+console.log(remainingSubmitters, 'are the remaining submitters')
