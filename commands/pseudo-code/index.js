@@ -1,7 +1,7 @@
 // Example 1
 const receivedMsg = {
   activationId: null,
-  submitter: ['SVC-VSON1', 'SVC-VSON3', 'SVC-VSON2', 'SVC-VSON3'],
+  submitter: ['test1', 'test3', 'test2', 'test3'],
   activationDataId: [350050247],
   nodeId: [107015],
   scheduled_type: 'SCHEDULE_MAINT',
