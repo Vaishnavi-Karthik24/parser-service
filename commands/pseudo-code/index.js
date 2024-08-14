@@ -14,18 +14,24 @@ console.log(submitterId, 'submitterId')
 // Count occurrences and find the most frequent submitter
 let counts = {}
 let maxSubmitter = submitterId[0]
+let remainingSubmitters = ''
 
-for (let submitter of submitterId) {
-  counts[submitter] = (counts[submitter] || 0) + 1
-  if (counts[submitter] > counts[maxSubmitter]) {
-    maxSubmitter = submitter
+if (submitterId.length > 1) {
+  for (let submitter of submitterId) {
+    counts[submitter] = (counts[submitter] || 0) + 1
+    if (counts[submitter] > counts[maxSubmitter]) {
+      maxSubmitter = submitter
+    }
   }
+  // Filter out the maxSubmitter and create a comma-separated string
+  remainingSubmitters += submitterId
+    .filter((submitter) => submitter !== maxSubmitter)
+    .join(',')
+  console.log(
+    `Submitters received :: ${submitterId.length} and maximum submitter is :: ${maxSubmitter} and remaining submitters will be :: ${remainingSubmitters}`
+  )
+} else {
+  console.log(
+    `Submitters received :: ${submitterId.length} and maximum submitter will be :: ${maxSubmitter}`
+  )
 }
-
-// Filter out the maxSubmitter and create a comma-separated string
-let remainingSubmitters = submitterId
-  .filter((submitter) => submitter !== maxSubmitter)
-  .join(',')
-
-console.log(maxSubmitter, 'is the selected submitter')
-console.log(remainingSubmitters, 'are the remaining submitters')
