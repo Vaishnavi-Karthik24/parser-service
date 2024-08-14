@@ -2,8 +2,8 @@
 const receivedMsg = {
   activationId: null,
   submitter: ['test1', 'test3', 'test2', 'test3'],
-  activationDataId: [350050247],
-  nodeId: [107015],
+  DataId: [350050247],
+  Id: [107015],
   scheduled_type: 'SCHEDULE_MAINT',
 }
 
