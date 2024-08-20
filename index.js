@@ -11,6 +11,7 @@ import pulsarClient from './pulsar/client/index.js'
 import { consumerInit } from './pulsar/consumer/index.js'
 import routes from './routes/index.js'
 import logger from './logger/index.js'
+import { cronJob } from './cronJob/index.js'
 
 // Initialize Express app
 export const app = express()
@@ -69,6 +70,8 @@ try {
 const server = app.listen(process.env.PORT, function () {
   logger.info('Application started on port : ' + process.env.PORT)
 })
+
+cronJob() // cron job
 
 // Gracefully shutdown on SIGINT signal
 process.on('SIGINT', async () => {
