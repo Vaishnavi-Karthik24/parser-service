@@ -32,7 +32,7 @@ Rm -rf
 
 Df -h
 
-cd /usr/apps/vsonadm/vson/data
+cd /usr/apps/data
 
 touch sample1.txt sample2.txt
 # Will create the following files
@@ -72,12 +72,12 @@ cat DU_96875.HW.xml
 
 
 # To tar the files 
-tar -cvzf southlake4S.202401260624.tar.gz eNB_71375.HW.xml eNB_7137500879.HW.xml FSU_22475.HW.xml FSU_2249875.HW.xml eNB_96700875.HW.xml DU_96875.HW.xml
+tar -cvzf test.202401260624.tar.gz eNB_71375.HW.xml eNB_7137500879.HW.xml FSU_22475.HW.xml FSU_2249875.HW.xml eNB_96700875.HW.xml DU_96875.HW.xml
 
-tar -xvzf southlakeS.202401260624.tar.gz -C targetPath
+tar -xvzf test.202401260624.tar.gz -C targetPath
 Untar file and copying it into target directory
 
-cp -r east_syracuseS.202301260624.tar.gz /home/jayka5f/apps/data /home/jayka5f/apps/tarfiles || cp east_syracuseS.202301260624.tar.gz /home/tars/
+cp -r test.202301260624.tar.gz /home/apps/data /home/apps/tarfiles || cp test.202301260624.tar.gz /home/tars/
 # Copying the file from one directory to another
 
 
